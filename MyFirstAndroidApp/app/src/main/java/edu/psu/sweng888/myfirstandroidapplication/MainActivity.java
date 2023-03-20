@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.d(currentActivityState, "onStart()");
-        Log.d(methodDescription, "the activity has become visible.");
+        Log.d(methodDescription, "the activity is about to become visible.");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.d(currentActivityState, "onResume()");
-        Log.d(methodDescription, "the activity has become visible.");
+        Log.d(methodDescription, "activity will start interacting with the user.");
     }
 
     @Override

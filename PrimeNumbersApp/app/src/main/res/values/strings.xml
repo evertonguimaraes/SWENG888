@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PrimeNumbersApp</string>
+    <string name="textViewTitle">Type a number</string>
+    <string name="editTextNumber">Please include a natural number</string>
+    <string name="buttonCheck">Check If Prime</string>
+    <string name="buttonDelete">Delete Number</string>
 </resources>

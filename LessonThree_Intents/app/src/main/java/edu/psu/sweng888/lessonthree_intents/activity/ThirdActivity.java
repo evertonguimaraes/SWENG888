@@ -11,10 +11,6 @@ import edu.psu.sweng888.lessonthree_intents.model.Course;
 
 public class ThirdActivity extends AppCompatActivity {
 
-    private TextView mCourseIDTextView;
-    private TextView mCourseCredits;
-    private TextView mCourseDescription;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

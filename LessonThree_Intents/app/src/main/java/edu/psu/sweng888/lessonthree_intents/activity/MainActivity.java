@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButtonSendSMS;
     private Button mButtonCreateNote;
     private Button mButtonListCourses;
-
     private Button mButtonOpenFile;
 
     @Override

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/imageViewAvatar"
@@ -93,9 +93,16 @@
 
     <Button
         android:id="@+id/buttonCreateNote"
-        android:text="@string/use_action_create_note"
+        android:text="@string/use_action_open_notes"
         android:layout_width="360dp"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonOpenFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+       />
 
     <View
         android:id="@+id/dividerBottom"

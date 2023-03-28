@@ -8,17 +8,23 @@
     <!-- Strings for each button in the UI -->
     <string name="make_call">Make a Call / Dial</string>
     <string name="send_email">Send an Email</string>
-    <string name="send_sms">Send an SMS</string>
-    <string name="create_note">Create a Note</string>
+    <string name="send_sms">Open the Camera</string>
+    <string name="create_note">Open Google Keep (Notes)</string>
     <string name="check_list_courses"> List of Courses</string>
 
     <!-- Strings based on the intent-filter used for implicit intents -->
     <string name="use_action_call_dial">Use intent-filter ACTION CALL / DIAL </string>
     <string name="use_action_send">Use intent-filter ACTION SEND </string>
-    <string name="use_action_sendto">Use intent-filter ACTION SENDTO (SMS) </string>
-    <string name="use_action_create_note">Use intent-filter ACTION_CREATE_NOTE</string>
+    <string name="use_action_sendto">Use intent-filter (Camera) </string>
+    <string name="use_action_open_notes">Use intent-filter ACTION VIEW (Keep)</string>
 
     <!--Explicit Intent -->
     <string name="call_explicit_intent">Use Explicit Intent</string>
+
+    <!-- Strings for the Second Activity -->
+    <string name="welcome_sweng">Welcome! Software Engineering Program</string>
+
+    <!-- Strings for the Third Activity -->
+    <string name="third_activity_title">Selected Course</string>
 
 </resources>

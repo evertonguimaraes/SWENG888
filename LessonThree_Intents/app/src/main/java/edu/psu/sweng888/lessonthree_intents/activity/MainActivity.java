@@ -1,21 +1,13 @@
 package edu.psu.sweng888.lessonthree_intents.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import static android.Manifest.permission.CALL_PHONE;
-
-import java.util.List;
 
 import edu.psu.sweng888.lessonthree_intents.R;
 
@@ -39,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mButtonOpenDialer = findViewById(R.id.buttonMakeCall);
         mButtonSendEmail = findViewById(R.id.buttonSendEmail);
-        mButtonSendSMS = findViewById(R.id.buttonSendSMS);
+        mButtonSendSMS = findViewById(R.id.buttonSetAlarm);
         mButtonCreateNote = findViewById(R.id.buttonCreateNote);
         mButtonOpenFile = findViewById(R.id.buttonOpenFile);
 
@@ -61,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.buttonMakeCall: openDialer(); break;
             case R.id.buttonSendEmail: sendEmail(); break;
-            case R.id.buttonSendSMS: openCamera();break;
+            case R.id.buttonSetAlarm: setAlarm();break;
             case R.id.buttonCreateNote: openGoogleKeepNotes(); break;
             case R.id.buttonOpenFile: openPDFFile(); break;
             case R.id.buttonCheckListCourses: showListCourses(); break;
@@ -87,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void openCamera(){
+    private void setAlarm(){
 
     }
 

@@ -5,7 +5,7 @@
     <string name="app_options">Click below to access a resource</string>
     <string name="ui_top_message"> What is your Intent? </string>
 
-    <!-- Strings for each button in the UI -->
+    <!-- Strings for each button in the MainActivity UI -->
     <string name="make_call">Make a Call / Dial</string>
     <string name="send_email">Send an Email</string>
     <string name="set_alarm">Set Alarm</string>
@@ -26,5 +26,5 @@
 
     <!-- Strings for the Third Activity -->
     <string name="third_activity_title">Selected Course</string>
-
+    <string name="return_previous"> Return to SecondActivity</string>
 </resources>

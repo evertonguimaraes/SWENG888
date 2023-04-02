@@ -1,20 +1,16 @@
 package edu.psu.sweng888.lessonfour_data.database;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.psu.sweng888.lessonfour_data.model.Movie;
 
-public class MovieDatabaseHelpter extends SQLiteOpenHelper {
+public class MovieDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "movie_database";
     private static final int DATABASE_VERSION = 1;
-
     private static final String TABLE_MOVIES = "movies";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
@@ -23,7 +19,7 @@ public class MovieDatabaseHelpter extends SQLiteOpenHelper {
     private static final String KEY_RATING = "rating";
     private static final String KEY_DESCRIPTION = "description";
 
-    public MovieDatabaseHelpter(Context context){
+    public MovieDatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -60,19 +56,10 @@ public class MovieDatabaseHelpter extends SQLiteOpenHelper {
     }
 
     public List<Movie> getMoviesByCategory (String category){
-        List<Movie> movieList = new ArrayList<>();
-
-        // TODO IMPLEMENT THE LOGIC
-
-        return  movieList;
+       return null;
     }
 
     public List<Movie> getAllMovies(){
-        List<Movie> movieList = new ArrayList<>();
-
-        //TODO IMPLEMENT THE LOGIC
-
-        return movieList;
-
+       return null;
     }
 }

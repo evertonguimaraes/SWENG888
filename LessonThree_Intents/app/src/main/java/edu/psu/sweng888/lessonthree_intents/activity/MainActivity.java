@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /** Set the OnLongCLickListener for the OpenDialer Button */
         mButtonOpenDialer.setOnClickListener(this);
-
     }
 
     @Override
@@ -127,7 +126,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void openGoogleKeepNotes(){
-        // TODO Implement this version in the next class.
+        PackageManager packageManager = getApplicationContext().getPackageManager();
+        boolean isKeepInstalled;
+
+        try {
+            packageManager.getPackageInfo("com.google.android.keep", PackageManager.GET_ACTIVITIES);
+            isKeepInstalled = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            isKeepInstalled = false;
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setPackage("com.google.android.keep");
+        intent.setData(Uri.parse("https://keep.google.com/#NOTE/"));
+        startActivity(intent);
     }
 
     private void showListCourses(){

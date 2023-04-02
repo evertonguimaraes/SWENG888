@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             contacts = getContacts();
         } else {
             // Permission is already granted, proceed with app logic
-//            displayContacts();
             contacts = getContacts();
         }
 
@@ -55,29 +54,32 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contact> getContacts() {
         ArrayList<Contact> contacts = new ArrayList<>();
         ContentResolver contentResolver = getContentResolver();
-        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
-                String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                String id = cursor.getString(cursor.getColumnIndex(
+                        ContactsContract.Contacts._ID));
+                String name = cursor.getString(cursor.getColumnIndex(
+                        ContactsContract.Contacts.DISPLAY_NAME));
                 String phoneNumber = "";
 
-                Cursor phoneCursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
-                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{id}, null);
+                Cursor phoneCursor = contentResolver.query(
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                        new String[]{id}, null);
 
                 if (phoneCursor.moveToFirst()) {
-                    phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(
+                            ContactsContract.CommonDataKinds.Phone.NUMBER));
                 }
-
                 phoneCursor.close();
                 contacts.add(new Contact(name, phoneNumber));
 
             } while (cursor.moveToNext());
         }
-
         cursor.close();
-
         return contacts;
     }
 }

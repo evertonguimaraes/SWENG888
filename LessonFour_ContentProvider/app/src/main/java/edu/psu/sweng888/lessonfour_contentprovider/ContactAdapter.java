@@ -12,21 +12,21 @@ import java.util.ArrayList;
 public class ContactAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<Contact> mContacts;
+    private ArrayList<Contact> contactsList;
 
     public ContactAdapter(Context context, ArrayList<Contact> contacts) {
         mContext = context;
-        mContacts = contacts;
+        contactsList = contacts;
     }
 
     @Override
     public int getCount() {
-        return mContacts.size();
+        return contactsList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mContacts.get(position);
+        return contactsList.get(position);
     }
 
     @Override
@@ -40,13 +40,13 @@ public class ContactAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.contact_item, parent, false);
         }
 
-        Contact contact = mContacts.get(position);
+        Contact contact = contactsList.get(position);
 
-        TextView nameTextView = convertView.findViewById(R.id.nameTextView);
-        TextView phoneTextView = convertView.findViewById(R.id.phoneTextView);
+        TextView mTextViewName = convertView.findViewById(R.id.nameTextView);
+        TextView mTextViewPhone = convertView.findViewById(R.id.phoneTextView);
 
-        nameTextView.setText(contact.getName());
-        phoneTextView.setText(contact.getPhoneNumber());
+        mTextViewName.setText(contact.getName());
+        mTextViewPhone.setText(contact.getPhoneNumber());
 
         return convertView;
     }

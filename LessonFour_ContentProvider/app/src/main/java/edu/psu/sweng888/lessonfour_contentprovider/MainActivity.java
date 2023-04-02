@@ -32,16 +32,16 @@ public class MainActivity extends AppCompatActivity {
 
         mListView = findViewById(R.id.contacts_list);
 
-        // Check for permission to access contacts
+        /** Check for permission to access contacts */
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted, request it
+            /** Permission is not granted, request it */
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.READ_CONTACTS},
                     PERMISSIONS_REQUEST_READ_CONTACTS);
             contacts = getContacts();
         } else {
-            // Permission is already granted, proceed with app logic
+            /** Permission is already granted, proceed with app logic */
             contacts = getContacts();
         }
 
@@ -83,44 +83,3 @@ public class MainActivity extends AppCompatActivity {
         return contacts;
     }
 }
-
-
-//public class MainActivity extends AppCompatActivity {
-//
-//    private ListView mListViewContacts;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        mListViewContacts = findViewById(R.id.contacts_list);
-//
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-//            //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, REQUEST_CODE_READ_CONTACTS);
-//
-//        String [] projection = {
-//                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-//                ContactsContract.CommonDataKinds.Phone.NUMBER
-//        };
-//
-//        Cursor cursor = getContentResolver().query(
-//                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-//                projection,
-//                null,
-//                null,
-//                null
-//        );
-//
-//        SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(
-//                this,
-//                android.R.layout.simple_expandable_list_item_2,
-//                cursor,
-//                new String[] {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER},
-//                new int [] {android.R.id.text1, android.R.id.text2}
-//        );
-//
-//        mListViewContacts.setAdapter(simpleCursorAdapter);
-//    }
-//    }
-//}

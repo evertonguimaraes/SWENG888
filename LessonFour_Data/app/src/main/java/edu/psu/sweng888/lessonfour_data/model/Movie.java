@@ -5,28 +5,27 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Movie implements Parcelable {
-
+  public class Movie implements Parcelable {
     private int year;
     private float rating;
     private String description;
     private String title;
     private String category;
 
-    public Movie(int year, float rating, String description, String title, String category) {
+    public Movie(String title, String category, int year, float rating, String description) {
+        this.title = title;
+        this.category = category;
         this.year = year;
         this.rating = rating;
         this.description = description;
-        this.title = title;
-        this.category = category;
     }
 
     protected Movie(Parcel in) {
+        title = in.readString();
+        category = in.readString();
         year = in.readInt();
         rating = in.readFloat();
         description = in.readString();
-        title = in.readString();
-        category = in.readString();
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {

@@ -14,7 +14,7 @@ import edu.psu.sweng888.lessonfour_data.model.Movie;
   public class MovieDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "movies_database";
     private static final int DATABASE_VERSION = 1;
-      private static final String TABLE_MOVIES = "movies";
+    private static final String TABLE_MOVIES = "movies";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_CATEGORY = "category";
@@ -30,7 +30,6 @@ import edu.psu.sweng888.lessonfour_data.model.Movie;
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createMoviesTable());
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -121,7 +120,7 @@ import edu.psu.sweng888.lessonfour_data.model.Movie;
         return movieList;
     }
 
-      public boolean isDatabaseEmpty() {
+    public boolean isDatabaseEmpty() {
           boolean isEmpty = true;
           SQLiteDatabase database = getWritableDatabase();
           Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + TABLE_MOVIES, null);
@@ -136,43 +135,43 @@ import edu.psu.sweng888.lessonfour_data.model.Movie;
           return isEmpty;
       }
 
-      public void populateMoviesDatabase(){
+    public void populateMoviesDatabase(){
 
         SQLiteDatabase database = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-//        values = new ContentValues();
-//        values.put(KEY_TITLE, "The Avengers");
-//        values.put(KEY_CATEGORY, "fiction");
-//        values.put(KEY_YEAR, 2012);
-//        values.put(KEY_RATING, 4.8);
-//        values.put(KEY_DESCRIPTION, "MARVEL");
-//        database.insert(TABLE_MOVIES, null, values);
-//
-//        values = new ContentValues();
-//        values.put(KEY_TITLE, "Blade Runner 2049");
-//        values.put(KEY_CATEGORY, "action");
-//        values.put(KEY_YEAR, 2017);
-//        values.put(KEY_RATING, 3.8);
-//        values.put(KEY_DESCRIPTION, "Warner Bros");
-//        database.insert(TABLE_MOVIES, null, values);
+        values = new ContentValues();
+        values.put(KEY_TITLE, "The Avengers");
+        values.put(KEY_CATEGORY, "fiction");
+        values.put(KEY_YEAR, 2012);
+        values.put(KEY_RATING, 4.8);
+        values.put(KEY_DESCRIPTION, "MARVEL");
+        database.insert(TABLE_MOVIES, null, values);
 
-//        values = new ContentValues();
-//        values.put(KEY_TITLE, "Babylon");
-//        values.put(KEY_CATEGORY, "comedy");
-//        values.put(KEY_YEAR, 2022);
-//        values.put(KEY_RATING, 4.8);
-//        values.put(KEY_DESCRIPTION, "Paramount");
-//        database.insert(TABLE_MOVIES, null, values);
-//
-//        values = new ContentValues();
-//        values.put(KEY_TITLE, "The Man From Toronto");
-//        values.put(KEY_CATEGORY, "action");
-//        values.put(KEY_YEAR, 2022);
-//        values.put(KEY_RATING, 4.8);
-//        values.put(KEY_DESCRIPTION, "Netflix");
-//        database.insert(TABLE_MOVIES, null, values);
+        values = new ContentValues();
+        values.put(KEY_TITLE, "Blade Runner 2049");
+        values.put(KEY_CATEGORY, "action");
+        values.put(KEY_YEAR, 2017);
+        values.put(KEY_RATING, 3.8);
+        values.put(KEY_DESCRIPTION, "Warner Bros");
+        database.insert(TABLE_MOVIES, null, values);
+
+        values = new ContentValues();
+        values.put(KEY_TITLE, "Babylon");
+        values.put(KEY_CATEGORY, "comedy");
+        values.put(KEY_YEAR, 2022);
+        values.put(KEY_RATING, 4.8);
+        values.put(KEY_DESCRIPTION, "Paramount");
+        database.insert(TABLE_MOVIES, null, values);
+
+        values = new ContentValues();
+        values.put(KEY_TITLE, "The Man From Toronto");
+        values.put(KEY_CATEGORY, "action");
+        values.put(KEY_YEAR, 2022);
+        values.put(KEY_RATING, 4.8);
+        values.put(KEY_DESCRIPTION, "Netflix");
+        database.insert(TABLE_MOVIES, null, values);
 
         values = new ContentValues();
         values.put(KEY_TITLE, "Game Night");

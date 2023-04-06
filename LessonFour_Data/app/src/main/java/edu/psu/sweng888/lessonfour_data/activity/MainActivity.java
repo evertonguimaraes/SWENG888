@@ -24,7 +24,7 @@ import edu.psu.sweng888.lessonfour_data.model.SpacingItemDecorator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private RecyclerView recyclerView;
+    private RecyclerView mRecyclerView;
     private LinearLayoutManager layoutManager;
     private MovieDatabaseHelper databaseHelper;
     private MovieAdapter movieAdapter;
@@ -36,36 +36,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recycler_view);
+        /** Instantiate the UI elements */
+        mRecyclerView = findViewById(R.id.recycler_view);
         mFloatingActionButton = findViewById(R.id.floating_action_button);
         mButtonBackSelection = findViewById(R.id.button_back_to_selection_activity);
 
         mFloatingActionButton.setOnClickListener(this);
         mButtonBackSelection.setOnClickListener(this);
 
+        /** Create an instance of the MovieDataBaseHelpter to manipulate the database */
         databaseHelper = new MovieDatabaseHelper(this);
 
         List<Movie> movies;
+        /** Create an intent to recover the String passed as parameter in the previous activity **/
         Intent intent = getIntent();
         String option_selected = (String) intent.getStringExtra("option_selected");
 
+        /** Check if the database is empty. If so, we need to populate it, and get All the movies */
         if(databaseHelper.isDatabaseEmpty()){
             databaseHelper.populateMoviesDatabase();
-            movies = databaseHelper.getAllMovies();
         }
 
+        /** We can check which option the user selected, and call the appropriate method.
+         * If the user have selected a specific category, we may passe it as parameter in the
+         * getMoviesByCategory(...) method defined in the DatabaseHelper.
+         */
         if (option_selected.equals("all")){
             movies = databaseHelper.getAllMovies();
         } else {
             movies = databaseHelper.getMoviesByCategory(option_selected.toLowerCase());
         }
 
+        /** We have a populated list of movies. Next, we need to configure the adapter,
+         *  and assign a movie adapter to the RecyclerView */
         movieAdapter = new MovieAdapter(movies);
-        recyclerView.setAdapter(movieAdapter);
-        recyclerView.addItemDecoration(new SpacingItemDecorator(0));
+        mRecyclerView.setAdapter(movieAdapter);
+        mRecyclerView.addItemDecoration(new SpacingItemDecorator(0));
+        /** The RecyclerView needs a LayoutManager to draw the objects. It will be responsible for
+         * measuring and positioning each item view within the RecyclerView*/
         layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
     }
 
     @Override

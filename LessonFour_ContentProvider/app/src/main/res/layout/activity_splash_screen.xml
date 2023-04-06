@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="#cfe8fc"
+    android:background="@color/light_sky_blue"
     tools:context=".SplashScreenActivity">
 
     <TextView
         android:text="Welcome to Penn State"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="#00008B"
+        android:textColor="@color/dark_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"/>

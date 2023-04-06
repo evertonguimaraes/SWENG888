@@ -20,15 +20,21 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         /** Configure and start the progress bar animation */
         mProgressBar = findViewById(R.id.splash_progress_bar);
+        /** initialize the progress bar and animate it from 0% to 100% using an ObjectAnimator
+         * object. The animation takes 4 seconds to complete and uses a decelerate interpolator
+         * to give it a smoother animation */
         ObjectAnimator animation = ObjectAnimator.ofInt(mProgressBar, "progress", 0, 100);
         animation.setDuration(4000);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
 
-        /** Start the next activity after a delay */
+         /** We use a Handler object to delay the launch of the MainActivity by 4 seconds.
+          * After 4 seconds, an intent is created to launch the MainActivity, and the finish()
+          * method is called to destroy the splash screen activity. */
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                /** Start the next activity after a delay */
                 Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

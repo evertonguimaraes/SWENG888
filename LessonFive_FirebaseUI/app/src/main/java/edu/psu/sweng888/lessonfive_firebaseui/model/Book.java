@@ -7,17 +7,17 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private String publisher;
-    private String publication_date;
+    private String publication;
     private Long isbn;
 
     public Book() {
     }
 
-    public Book(String title, String author, String publisher, String publication_date, Long isbn) {
+    public Book(String title, String author, String publisher, String publication, Long isbn) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
-        this.publication_date = publication_date;
+        this.publication = publication;
         this.isbn = isbn;
     }
 
@@ -46,12 +46,12 @@ public class Book implements Serializable {
         this.publisher = publisher;
     }
 
-    public String getPublicationDate() {
-        return publication_date;
+    public String getPublication() {
+        return publication;
     }
 
-    public void setPublication_date(String publication_date) {
-        this.publication_date = publication_date;
+    public void setPublication(String publication) {
+        this.publication = publication;
     }
 
     public Long getIsbn() {

@@ -3,6 +3,7 @@ package edu.psu.sweng888.lessonfive_firebaseui.model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,6 @@ import edu.psu.sweng888.lessonfive_firebaseui.R;
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHolder> {
 
     private List<Book> mBooks;
-
     public BooksAdapter(List<Book> books) {
         mBooks = books;
     }
@@ -45,7 +45,6 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
     }
 
     static class BookViewHolder extends RecyclerView.ViewHolder {
-
         private TextView mTitleTextView;
         private TextView mAuthorTextView;
         private TextView mPublisherTextView;
@@ -62,11 +61,11 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
         }
 
         public void bind(Book book) {
-            mTitleTextView.setText(book.getTitle());
-            mAuthorTextView.setText(book.getAuthor());
-            mPublisherTextView.setText(book.getPublisher());
-            mPublicationDateTextView.setText(book.getPublicationDate());
-            mIsbnTextView.setText(book.getIsbn().toString());
+            mTitleTextView.setText("Title: "+ book.getTitle());
+            mAuthorTextView.setText("Author: "+book.getAuthor());
+            mPublisherTextView.setText("Publisher: "+book.getPublisher());
+            mPublicationDateTextView.setText("Year: "+book.getPublication());
+            mIsbnTextView.setText("ISBN: "+book.getIsbn().toString());
         }
     }
 }

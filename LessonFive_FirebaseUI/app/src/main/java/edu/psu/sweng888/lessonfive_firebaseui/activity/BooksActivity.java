@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -22,16 +21,12 @@ import java.util.List;
 import edu.psu.sweng888.lessonfive_firebaseui.R;
 import edu.psu.sweng888.lessonfive_firebaseui.model.Book;
 import edu.psu.sweng888.lessonfive_firebaseui.model.BooksAdapter;
-import edu.psu.sweng888.lessonfive_firebaseui.model.FirebaseBookDAO;
 
 public class BooksActivity extends AppCompatActivity {
 
     private TextView mTextViewEmail;
-
     private RecyclerView mRecyclerView;
-
     private DatabaseReference firebaseDatabase;
-
     private BooksAdapter mBooksAdapter;
 
     @Override
@@ -49,6 +44,7 @@ public class BooksActivity extends AppCompatActivity {
         /** Implement the Call to FirebaseBookDAO */
 
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("books");
+
         firebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

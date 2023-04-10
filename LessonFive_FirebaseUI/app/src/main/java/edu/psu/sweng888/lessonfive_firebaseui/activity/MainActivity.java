@@ -1,4 +1,4 @@
-package edu.psu.sweng888.lessonfive_firebaseui;
+package edu.psu.sweng888.lessonfive_firebaseui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.collection.LLRBNode;
+
+import edu.psu.sweng888.lessonfive_firebaseui.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                            Intent intent = new Intent(MainActivity.this, BooksActivity.class);
                             intent.putExtra("email", email);
                             startActivity(intent);
                             finish();

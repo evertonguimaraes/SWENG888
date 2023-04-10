@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import edu.psu.sweng888.lessonfive_firebaseui.R;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mEditTextUser;
     private EditText mEditTextPassword;
     private Button mLoginButton;
+    private Button mSignUpButton;
 
     /**
      * Class the provides access to the Firebase Authentication
@@ -38,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEditTextUser = findViewById(R.id.edit_text_user);
         mEditTextPassword = findViewById(R.id.edit_text_password);
         mLoginButton = findViewById(R.id.button_sign_in);
+        mSignUpButton = findViewById(R.id.button_sign_up);
 
         mLoginButton.setOnClickListener(this);
+        mSignUpButton.setOnClickListener(this);
     }
 
     @Override
@@ -63,8 +67,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         /** If the user's input have the correct information, we need to invoke the
-         * signInWithEmailAndPassword method.
-         */
+         * signInWithEmailAndPassword method.*/
+
+        switch (v.getId()){
+            case R.id.button_sign_in: SignIn(email, password); break;
+            case R.id.button_sign_up: SignUp(email, password); break;
+        }
+
+    }
+
+    private void SignIn(String email, String password){
         mFirebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -81,4 +93,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
+    private void SignUp(String email, String password){
+        mFirebaseAuth.createUserWithEmailAndPassword(email, password).
+                addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            FirebaseUser user = mFirebaseAuth.getCurrentUser();
+                            Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+                            intent.putExtra("email", user.getEmail());
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                });
+    }
 }

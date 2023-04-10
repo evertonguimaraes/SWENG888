@@ -68,6 +68,18 @@
         android:layout_marginRight="80dp"
         android:textColor="@color/dark_blue"
         android:backgroundTint="@color/off_white"
-        android:text="Login"/>
+        android:text="@string/button_sign_in"/>
+
+    <Button
+        android:id="@+id/button_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:textColor="@color/dark_blue"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/button_sign_up"/>
 
 </LinearLayout>

@@ -7,18 +7,18 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private String publisher;
-    private String publicationData;
-    private String codeISBN;
+    private String publication_date;
+    private Long isbn;
 
     public Book() {
     }
 
-    public Book(String title, String author, String publisher, String publicationData, String codeISBN) {
+    public Book(String title, String author, String publisher, String publication_date, Long isbn) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
-        this.publicationData = publicationData;
-        this.codeISBN = codeISBN;
+        this.publication_date = publication_date;
+        this.isbn = isbn;
     }
 
     /** Getters and Setters */
@@ -47,18 +47,18 @@ public class Book implements Serializable {
     }
 
     public String getPublicationDate() {
-        return publicationData;
+        return publication_date;
     }
 
-    public void setPublicationData(String publicationData) {
-        this.publicationData = publicationData;
+    public void setPublication_date(String publication_date) {
+        this.publication_date = publication_date;
     }
 
-    public String getCodeISBN() {
-        return codeISBN;
+    public Long getIsbn() {
+        return isbn;
     }
 
-    public void setCodeISBN(String codeISBN) {
-        this.codeISBN = codeISBN;
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
     }
 }

@@ -45,8 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         /** Implement the integration with Firebase Authentication */
-        String email = mEditTextUser.getText().toString();
-        String password = mEditTextPassword.getText().toString();
+//        String email = mEditTextUser.getText().toString();
+//        String password = mEditTextPassword.getText().toString();
+
+        String email = "sweng888mobileapps@gmail.com";
+        String password = "mobilesoftwareengineering888";
 
         /** Create an instance of the Firebase Authentication component */
         mFirebaseAuth = FirebaseAuth.getInstance();

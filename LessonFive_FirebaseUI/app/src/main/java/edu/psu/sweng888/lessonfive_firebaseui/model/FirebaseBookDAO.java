@@ -1,5 +1,7 @@
 package edu.psu.sweng888.lessonfive_firebaseui.model;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,25 +36,25 @@ public class FirebaseBookDAO implements BookDAO{
         database.child(book.getTitle()).removeValue();
     }
 
-    @Override
-    public void getBooks(final BookDaoCallback callback) {
+    // New getBooks() method
+    public List<Book> getBooks() {
+        List<Book> bookList = new ArrayList<>();
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                List<Book> books = new ArrayList<>();
-                for (DataSnapshot bookSnapshot : snapshot.getChildren()) {
-                    Book book = bookSnapshot.getValue(Book.class);
-                    if (book != null) {
-                        books.add(book);
-                    }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Book book = dataSnapshot.getValue(Book.class);
+                    bookList.add(book);
                 }
-                callback.onSuccess(books);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                callback.onFailure(error.getMessage());
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+        return bookList;
     }
 }

@@ -22,6 +22,7 @@ import java.util.List;
 import edu.psu.sweng888.lessonfive_firebaseui.R;
 import edu.psu.sweng888.lessonfive_firebaseui.model.Book;
 import edu.psu.sweng888.lessonfive_firebaseui.model.BooksAdapter;
+import edu.psu.sweng888.lessonfive_firebaseui.model.FirebaseBookDAO;
 
 public class BooksActivity extends AppCompatActivity {
 
@@ -44,6 +45,8 @@ public class BooksActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.book_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        /** Implement the Call to FirebaseBookDAO */
 
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("books");
         firebaseDatabase.addValueEventListener(new ValueEventListener() {

@@ -66,7 +66,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
             mAuthorTextView.setText(book.getAuthor());
             mPublisherTextView.setText(book.getPublisher());
             mPublicationDateTextView.setText(book.getPublicationDate());
-            mIsbnTextView.setText(book.getCodeISBN());
+            mIsbnTextView.setText(book.getIsbn().toString());
         }
     }
 }

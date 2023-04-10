@@ -7,7 +7,7 @@ public interface BookDAO {
     void addBook(Book book);
     void updateBook(Book book);
     void removeBook(Book book);
-    void getBooks(BookDaoCallback callback);
+    List getBooks();
 
     interface BookDaoCallback {
         void onSuccess(List<Book> books);

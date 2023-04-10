@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LessonFive_FirebaseUI</string>
+
+    <!-- Strings for the MainActivity -->
+    <string name="text_view_user">User name or Email</string>
+    <string name="text_view_password">Password</string>
+
 </resources>

@@ -8,4 +8,8 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">CLose</string>
 
+    <string name="nav_drawer_item_home"> Home </string>
+    <string name="nav_drawer_item_gallery"> Gallery </string>
+    <string name="nav_drawer_item_settings"> Settings </string>
+
 </resources>

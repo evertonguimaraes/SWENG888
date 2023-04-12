@@ -82,12 +82,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+                            Intent intent = new Intent(MainActivity.this,
+                                    BooksActivity.class);
                             intent.putExtra("email", email);
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(MainActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Authentication failed",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

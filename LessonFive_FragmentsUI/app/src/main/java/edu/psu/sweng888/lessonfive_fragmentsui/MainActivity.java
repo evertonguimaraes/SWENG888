@@ -26,11 +26,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /** Step 2: Get the DrawerLayout object from the layout XML file */
         mDrawerLayout = findViewById(R.id.nav_drawer_layout);
+
         /** Step 3: Get the NavigationView object from the layout SML file */
         mNavigationView = findViewById(R.id.nav_view);
+
         /** Step 4: Set the listener for the NvigationView. The Main Activity shuould
          * imeplement the interface NavigationView.OnNavigationItemSelectedListener */
         mNavigationView.setNavigationItemSelectedListener(this);
+
         /** Step 5: Set up the ActionBarDrawerToggle */
         mActionBarDrawerToggle = new ActionBarDrawerToggle(
                 this, // Activity / Context
@@ -38,12 +41,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 R.string.navigation_drawer_open, // String to open
                 R.string.navigation_drawer_close // String to close
         );
+        /** Step 6: Include the mActionBarDrawerToggle as the listener to the DrawerLayout.
+         *  The synchState() method is used to synchronize the state of the navigation drawer */
         mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);
-
         mActionBarDrawerToggle.syncState();
 
-        /** Step 6 TODO Create a HomeFragment */
-        /** Step 6:Set the default fragment */
+        /** Step 7:Set the default fragment to the HomeFragment */
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new HomeFragment()).commit();
 

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LessonFive_FragmentsUI</string>
+
+    <!-- Strings for the Navigation Drawer -->
+    <string name="nav_drawer_subtitle"> Subtitle </string>
+    <string name="nav_drawer_title"> Title </string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">CLose</string>
+
+</resources>

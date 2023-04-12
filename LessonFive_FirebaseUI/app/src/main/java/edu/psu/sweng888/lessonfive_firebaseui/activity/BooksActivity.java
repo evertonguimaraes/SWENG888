@@ -26,7 +26,7 @@ public class BooksActivity extends AppCompatActivity {
 
     private TextView mTextViewEmail;
     private RecyclerView mRecyclerView;
-    private DatabaseReference firebaseDatabase;
+    private DatabaseReference mFirebaseDatabase;
     private BooksAdapter mBooksAdapter;
 
     @Override
@@ -35,17 +35,14 @@ public class BooksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         mTextViewEmail = findViewById(R.id.text_view_email);
+        mRecyclerView = findViewById(R.id.book_recycler_view);
+
         String email = "Email: "+getIntent().getStringExtra("email");
         mTextViewEmail.setText(email);
-
-        mRecyclerView = findViewById(R.id.book_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        /** Implement the Call to FirebaseBookDAO */
-
-        firebaseDatabase = FirebaseDatabase.getInstance().getReference("books");
-
-        firebaseDatabase.addValueEventListener(new ValueEventListener() {
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("books");
+        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Book> bookList = new ArrayList<>();
@@ -56,10 +53,10 @@ public class BooksActivity extends AppCompatActivity {
                 mBooksAdapter = new BooksAdapter(bookList);
                 mRecyclerView.setAdapter(mBooksAdapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("BookListActivity", "Error retrieving books from database", error.toException());
+                Log.e("BookListActivity", "Error retrieving books from database",
+                        error.toException());
             }
         });
     }

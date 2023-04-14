@@ -36,6 +36,7 @@ public class AddBookFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_add_book, container, false);
 
@@ -78,11 +79,16 @@ public class AddBookFragment extends Fragment implements View.OnClickListener {
         if (title.isEmpty() || author.isEmpty() || isbn.isEmpty() || publisher.isEmpty()) {
             Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
         } else {
+            /** Create a new instance of Book */
             Book newBook = new Book(title, author, isbn, publisher);
+            /** Add book to the database, using the BookDataseHelper */
             bookDatabaseHelper.addBook(newBook);
+            /** Recover the updated list of books */
             List<Book> newList = bookDatabaseHelper.getAllRecords();
+            /** Set the list to the BookAdapter */
             bookAdapter = new BookAdapter(newList);
-            bookAdapter.notifyDataSetChanged(); // how to inludw the adapter;
+            /** Use the method notifyDataSetChanged to update the list displayed in the RecyclerView */
+            bookAdapter.notifyDataSetChanged();
             Toast.makeText(getContext(), "New book added", Toast.LENGTH_SHORT).show();
             clearFields();
         }

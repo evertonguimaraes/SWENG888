@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import edu.psu.sweng888.lessonfive_fragmentsui.R;
 
-public class SettingsFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }

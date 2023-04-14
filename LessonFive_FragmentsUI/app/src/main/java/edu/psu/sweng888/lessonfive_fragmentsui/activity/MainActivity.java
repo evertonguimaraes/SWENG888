@@ -17,7 +17,7 @@ import edu.psu.sweng888.lessonfive_fragmentsui.R;
 import edu.psu.sweng888.lessonfive_fragmentsui.data.BookDatabaseHelper;
 import edu.psu.sweng888.lessonfive_fragmentsui.fragments.AddBookFragment;
 import edu.psu.sweng888.lessonfive_fragmentsui.fragments.BooksListFragment;
-import edu.psu.sweng888.lessonfive_fragmentsui.fragments.SettingsFragment;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /** Step 7:Set the default fragment to the HomeFragment */
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new BooksListFragment()).commit();
+                .replace(R.id.fragment_container, new HomeFragment()).commit();
     }
 
     @Override
@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_add_book:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddBookFragment()).commit();
                 break;
-            case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
         }
 

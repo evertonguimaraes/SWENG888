@@ -1,6 +1,8 @@
-package edu.psu.sweng888.lessonfive_fragmentsui.adapter;
+package edu.psu.sweng888.lessonfive_fragmentsui.data;
 
 import java.io.Serializable;
+
+import edu.psu.sweng888.lessonfive_fragmentsui.R;
 
 public class Book implements Serializable {
 
@@ -8,6 +10,7 @@ public class Book implements Serializable {
     private String author;
     private String isbn;
     private String publisher;
+    private int imageResourceId;
 
     public Book() {
     }
@@ -50,5 +53,9 @@ public class Book implements Serializable {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public int getImageResourceId() {
+        return R.drawable.ic_book;
     }
 }

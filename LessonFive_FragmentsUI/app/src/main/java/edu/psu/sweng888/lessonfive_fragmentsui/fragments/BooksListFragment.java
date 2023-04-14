@@ -1,5 +1,6 @@
 package edu.psu.sweng888.lessonfive_fragmentsui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,42 +12,44 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.psu.sweng888.lessonfive_fragmentsui.R;
-import edu.psu.sweng888.lessonfive_fragmentsui.adapter.Book;
+import edu.psu.sweng888.lessonfive_fragmentsui.data.Book;
 import edu.psu.sweng888.lessonfive_fragmentsui.adapter.BookAdapter;
+import edu.psu.sweng888.lessonfive_fragmentsui.data.BookDatabaseHelper;
 
-public class HomeFragment extends Fragment {
+public class BooksListFragment extends Fragment {
 
     private BookAdapter bookAdapter;
-
     private RecyclerView mRecyclerView;
+    private BookDatabaseHelper bookDatabaseHelper;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         /** Inflate the layout for this fragment */
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_book_list, container, false);
         /** Instantiate the RecyclerView */
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        ArrayList<Book> list = getAllBooks();
+        bookDatabaseHelper = new BookDatabaseHelper(getActivity());
+        if(bookDatabaseHelper.isDatabaseEmpty()){
+            bookDatabaseHelper.populateMoviesDatabase();
+        }
+
+        List<Book> list = bookDatabaseHelper.getAllRecords();
+
         bookAdapter = new BookAdapter(list);
         mRecyclerView.setAdapter(bookAdapter);
 
         return view;
     }
 
-    public ArrayList<Book> getAllBooks(){
-
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(new Book("Title 1", "Author 1", "1234567890", "Publisher 1"));
-        bookList.add(new Book("Title 2", "Author 2", "0987654321", "Publisher 2"));
-        bookList.add(new Book("Title 3", "Author 3", "0987654587", "Publisher 3"));
-        bookList.add(new Book("Title 4", "Author 4", "0987638470", "Publisher 4"));
-
-        return bookList;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        bookDatabaseHelper = new BookDatabaseHelper(context);
     }
 }

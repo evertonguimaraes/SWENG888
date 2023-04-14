@@ -6,14 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
 import edu.psu.sweng888.lessonfive_fragmentsui.R;
-import edu.psu.sweng888.lessonfive_fragmentsui.fragments.GalleryFragment;
-import edu.psu.sweng888.lessonfive_fragmentsui.fragments.HomeFragment;
+import edu.psu.sweng888.lessonfive_fragmentsui.data.BookDatabaseHelper;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.AddBookFragment;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.BooksListFragment;
 import edu.psu.sweng888.lessonfive_fragmentsui.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private NavigationView mNavigationView;
+    private BookDatabaseHelper bookDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /** Step 7:Set the default fragment to the HomeFragment */
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new HomeFragment()).commit();
-
+                .replace(R.id.fragment_container, new BooksListFragment()).commit();
     }
 
     @Override
@@ -61,54 +64,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            case R.id.nav_book_list:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BooksListFragment()).commit();
                 break;
-            case R.id.nav_gallery:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GalleryFragment()).commit();
+            case R.id.nav_add_book:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddBookFragment()).commit();
                 break;
             case R.id.nav_settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
                 break;
         }
 
-        // Close the navigation drawer
+        /** Close the navigation drawer */
         mDrawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-        return false;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /** Inflate the menu; this adds items to the action bar if it is present. */
+        getMenuInflater().inflate(R.menu.nav_drawer_items, menu);
+        return true;
     }
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        actionBarDrawerToggle.onConfigurationChanged(newConfig);
-//    }
-//
-//    @Override
-//    protected void onPostCreate(Bundle savedInstanceState) {
-//        super.onPostCreate(savedInstanceState);
-//        actionBarDrawerToggle.syncState();
-//    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mActionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
 }

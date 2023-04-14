@@ -1,4 +1,4 @@
-package edu.psu.sweng888.lessonfive_fragmentsui;
+package edu.psu.sweng888.lessonfive_fragmentsui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -7,10 +7,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+
+import edu.psu.sweng888.lessonfive_fragmentsui.R;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.GalleryFragment;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.HomeFragment;
+import edu.psu.sweng888.lessonfive_fragmentsui.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 

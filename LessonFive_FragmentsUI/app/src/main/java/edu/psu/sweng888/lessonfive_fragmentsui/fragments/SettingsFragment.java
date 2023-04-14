@@ -1,4 +1,4 @@
-package edu.psu.sweng888.lessonfive_fragmentsui;
+package edu.psu.sweng888.lessonfive_fragmentsui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import edu.psu.sweng888.lessonfive_fragmentsui.R;
 
 public class SettingsFragment extends Fragment {
 

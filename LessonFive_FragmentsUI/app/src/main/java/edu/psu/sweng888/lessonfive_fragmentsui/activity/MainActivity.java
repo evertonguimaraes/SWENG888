@@ -25,21 +25,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private NavigationView mNavigationView;
-    private BookDatabaseHelper bookDatabaseHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         /** Step 2: Get the DrawerLayout object from the layout XML file */
         mDrawerLayout = findViewById(R.id.nav_drawer_layout);
 
         /** Step 3: Get the NavigationView object from the layout SML file */
         mNavigationView = findViewById(R.id.nav_view);
 
-        /** Step 4: Set the listener for the NvigationView. The Main Activity shuould
-         * imeplement the interface NavigationView.OnNavigationItemSelectedListener */
+        /** Step 4: Set the listener for the NavigationView. The Main Activity should
+         * implement the interface NavigationView.OnNavigationItemSelectedListener */
         mNavigationView.setNavigationItemSelectedListener(this);
 
         /** Step 5: Set up the ActionBarDrawerToggle */
@@ -77,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /** Close the navigation drawer */
         mDrawerLayout.closeDrawer(GravityCompat.START);
-
         return true;
     }
 

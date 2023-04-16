@@ -25,15 +25,6 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            android:elevation="16dp"
-            android:layout_gravity="bottom"
-            app:menu="@menu/bottom_navigation_menu" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
@@ -42,6 +33,15 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/light_blue"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            android:elevation="16dp"
+            android:layout_gravity="bottom"
+            app:menu="@menu/bottom_navigation_menu" />
 
     </LinearLayout>
 

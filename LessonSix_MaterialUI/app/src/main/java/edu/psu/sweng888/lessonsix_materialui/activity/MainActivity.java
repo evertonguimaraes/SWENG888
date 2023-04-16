@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toolbar;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
-    private Toolbar mToolBar;
+    private MaterialToolbar mToolBar;
     private BottomNavigationView mBottomNavigationView;
     private FloatingActionButton mFloatingActionButton;
 
@@ -38,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         // Initialize views
         mDrawerLayout = findViewById(R.id.nav_drawer_layout);
         mNavigationView = findViewById(R.id.nav_view);
-        mToolBar.findViewById(R.id.toolbar);
+        mToolBar = findViewById(R.id.toolbar);
         mBottomNavigationView = findViewById(R.id.bottom_navigation_view);
         mFloatingActionButton = findViewById(R.id.floating_action_button);
 
-        setActionBar(mToolBar);
+        setSupportActionBar(mToolBar);
 
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

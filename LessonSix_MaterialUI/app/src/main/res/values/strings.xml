@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">LessonSix_MaterialUI</string>
+    <string name="app_title">Material UI</string>
+
+    <!-- Strings for the CardView -->
+    <string name="card_view_title">Title</string>
+    <string name="card_view_description">Description</string>
+
+    <!-- Strings for NavDrawer Header -->
+    <string name="nav_header_title">Title</string>
+    <string name="nav_header_subtitle">Subtitle</string>
+    <string name="nav_header_image_description">Profile Picture</string>
+
+    <!-- String got SnackBar -->
+    <string name="button_show_snackbar_text">Text for the Snackbar</string>
+
+    <!-- Strings for NavigationMenu -->
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Strings for BottomNavigationMenu -->
+    <string name="home">Home</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="maps">Google Maps</string>
+    <string name="settings">Settings</string>
+</resources>

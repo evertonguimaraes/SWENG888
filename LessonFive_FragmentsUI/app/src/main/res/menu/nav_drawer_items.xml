@@ -3,15 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_book"
+            android:icon="@drawable/ic_description"
             android:title="@string/nav_drawer_item_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_assignment"
-            android:title="@string/nav_drawer_item_gallery" />
+            android:id="@+id/nav_book_list"
+            android:icon="@drawable/ic_book"
+            android:title="@string/nav_drawer_item_books" />
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_description"
-            android:title="@string/nav_drawer_item_settings" />
+            android:id="@+id/nav_add_book"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/nav_drawer_item_add_book" />
     </group>
 </menu>

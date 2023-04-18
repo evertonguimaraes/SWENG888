@@ -12,7 +12,6 @@
         android:layout_marginTop="24dp"
         android:src="@drawable/penn_state_logo" />
 
-
     <TextView
         android:id="@+id/nav_drawer_header_title"
         android:layout_width="wrap_content"

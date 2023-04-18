@@ -10,7 +10,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.LessonSix_MaterialUI"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:ignore="MissingClass">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDMpCs6QkNd3RK9YFqQP5heiqSKnHKWcts"/>
 
         <activity
             android:name=".activity.MainActivity"

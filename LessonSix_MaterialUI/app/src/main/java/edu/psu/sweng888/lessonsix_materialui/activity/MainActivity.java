@@ -19,7 +19,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import edu.psu.sweng888.lessonsix_materialui.R;
+import edu.psu.sweng888.lessonsix_materialui.fragment.DashboardFragment;
 import edu.psu.sweng888.lessonsix_materialui.fragment.HomeFragment;
+import edu.psu.sweng888.lessonsix_materialui.fragment.MapsFragment;
 import edu.psu.sweng888.lessonsix_materialui.fragment.ProfileFragment;
 import edu.psu.sweng888.lessonsix_materialui.fragment.SettingsFragment;
 
@@ -60,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_home:
                         replaceFragment(new HomeFragment());
                         return true;
-                    case R.id.nav_profile:
-                        replaceFragment(new ProfileFragment());
-                        return true;
-                    case R.id.nav_settings:
+                    case R.id.nav_dashboard:
+                        replaceFragment(new DashboardFragment());
+                    case R.id.nav_maps:
+                        replaceFragment(new MapsFragment());
+                    case R.id.nav_notifications:
                         replaceFragment(new SettingsFragment());
                         return true;
                 }

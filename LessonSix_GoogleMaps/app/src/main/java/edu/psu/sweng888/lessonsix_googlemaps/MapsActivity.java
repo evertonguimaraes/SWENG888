@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -19,8 +20,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Dot;
+import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.SquareCap;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.AutocompletePrediction;
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
@@ -36,26 +43,17 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     private final String YOUR_API_KEY = "AIzaSyBcA4lmH3hbZy8v20-QZVwh72kovT7YJN8";
+    private GoogleMap mMap;
+    private SearchView searchView;
 
     private List<AutocompletePrediction> mPredictionList;
 
-    // creating a variable
-    // for search view.
-    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
-        /** NEW LINES - BEGIN **/
-       // Places.initialize(getApplicationContext(), YOUR_API_KEY);
-        //AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
-        /** NEW LINES - END **/
-
 
         // initializing our search view.
         searchView = findViewById(R.id.idSearchView);
@@ -65,62 +63,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.map);
 
-        // adding on query listener for our search view.
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // on below line we are getting the
-                // location name from search view.
-                String location = searchView.getQuery().toString();
-
-                // below line is to create a list of address
-                // where we will store the list of all address.
-                List<Address> addressList = null;
-
-                // checking if the entered location is null or not.
-                if (location != null || location.equals("")) {
-                    // on below line we are creating and initializing a geo coder.
-                    Geocoder geocoder = new Geocoder(MapsActivity.this);
-                    try {
-                        // on below line we are getting location from the
-                        // location name and adding that location to address list.
-                        addressList = geocoder.getFromLocationName(location, 1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    // on below line we are getting the location
-                    // from our list a first position.
-                    Address address = addressList.get(0);
-
-                    // on below line we are creating a variable for our location
-                    // where we will add our locations latitude and longitude.
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-
-                    // on below line we are adding marker to that position.
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-
-                    // below line is to animate camera to that position.
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // TODO Implement behavior for this method.
-                // TODO We are not working with autocomplete.
-                return false;
-            }
-
-
-        });
         // at last we calling our map fragment to update.
         mapFragment.getMapAsync(this);
+
+        /* TODO Implement the code for the searchView */
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
     }
 }

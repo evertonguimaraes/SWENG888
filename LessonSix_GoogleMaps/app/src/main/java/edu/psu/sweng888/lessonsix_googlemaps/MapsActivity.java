@@ -52,8 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 
         /** NEW LINES - BEGIN **/
-        Places.initialize(getApplicationContext(), YOUR_API_KEY);
-        AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
+       // Places.initialize(getApplicationContext(), YOUR_API_KEY);
+        //AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
         /** NEW LINES - END **/
 
 
@@ -108,6 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onQueryTextChange(String newText) {
                 // TODO Implement behavior for this method.
+                // TODO We are not working with autocomplete.
                 return false;
             }
 
@@ -119,6 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
     }
 }

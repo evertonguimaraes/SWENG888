@@ -3,10 +3,16 @@ package edu.psu.sweng888.lessonsix_googlemaps;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,6 +30,7 @@ import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRe
 import com.google.android.libraries.places.api.net.PlacesClient;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,6 +39,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     private final String YOUR_API_KEY = "AIzaSyBcA4lmH3hbZy8v20-QZVwh72kovT7YJN8";
+
+    private List<AutocompletePrediction> mPredictionList;
 
     // creating a variable
     // for search view.
@@ -98,33 +107,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (!newText.isEmpty()) {
-                    List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
-                    FindAutocompletePredictionsRequest request =
-                            FindAutocompletePredictionsRequest.builder()
-                                    .setCountry("US") // Limit suggestions to the US
-                                    .setTypeFilter(TypeFilter.ADDRESS) // Limit suggestions to addresses only
-                                    .setSessionToken(token)
-                                    .setQuery(newText)
-                                    .build();
-                    PlacesClient placesClient = Places.createClient(MapsActivity.this);
-                    placesClient.findAutocompletePredictions(request)
-                            .addOnSuccessListener((response) -> {
-                                // Display up to 5 suggestions to the user
-                                List<AutocompletePrediction> predictions = response.getAutocompletePredictions();
-                                for (int i = 0; i < Math.min(predictions.size(), 5); i++) {
-                                    Log.d("AutocompletePrediction", predictions.get(i).getFullText(null).toString());
-                                    // Display the suggestion to the user
-                                    // ...
-                                }
-                            })
-                            .addOnFailureListener((exception) -> {
-                                // Handle error
-                                Log.e("TAG", "Autocomplete prediction fetch failed.", exception);
-                            });
-                }
+                // TODO Implement behavior for this method.
                 return false;
             }
+
 
         });
         // at last we calling our map fragment to update.

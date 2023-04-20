@@ -13,7 +13,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 
 import edu.psu.sweng888.lessonsix_materialui.R;
 
-public class MapsFragment extends Fragment  {
+public class MapsFragment extends Fragment  implements OnMapReadyCallback{
 
         private MapView mMapView;
         private GoogleMap mGoogleMap;
@@ -21,9 +21,9 @@ public class MapsFragment extends Fragment  {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_maps, container, false);
-//            mMapView = (MapView) view.findViewById(R.id.map_view);
-//            mMapView.onCreate(savedInstanceState);
-//            mMapView.getMapAsync(this);
+            mMapView = (MapView) view.findViewById(R.id.map_view);
+            mMapView.onCreate(savedInstanceState);
+            mMapView.getMapAsync(this);
 
             return view;
         }
@@ -52,9 +52,9 @@ public class MapsFragment extends Fragment  {
 //            mMapView.onLowMemory();
 //        }
 //
-//        @Override
-//        public void onMapReady(GoogleMap googleMap) {
-//            mGoogleMap = googleMap;
-//            // Add your code to initialize the map here
-//        }
+        @Override
+        public void onMapReady(GoogleMap googleMap) {
+            mGoogleMap = googleMap;
+            // Add your code to initialize the map here
+        }
 }

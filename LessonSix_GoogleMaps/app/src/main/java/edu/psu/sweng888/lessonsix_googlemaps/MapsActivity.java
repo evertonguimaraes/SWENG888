@@ -127,22 +127,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void createPolygonsOnMap(){
         /** Define the Coordinates  for Polygon A*/
-//        LatLng columbus = new LatLng(39.96712, -82.9988);
-//        LatLng newYork = new LatLng(40.7128, -74.0060);
-//        LatLng philadelphia = new LatLng(39.9526, -75.1652);
-//        LatLng nashville = new LatLng(36.1627, 86.7816);
-//
+        LatLng columbus = new LatLng(39.96712, -82.9988);
+        LatLng newYork = new LatLng(40.7128, -74.0060);
+        LatLng philadelphia = new LatLng(39.9526, -75.1652);
+        LatLng nashville = new LatLng(36.1627, -86.7816);
+
 //        /** Configuring polygon A */
-//        Polygon polygonA = mMap.addPolygon(new PolygonOptions()
-//                .clickable(true)
-//                .add(columbus, nashville, philadelphia, newYork));
-//        polygonA.setTag("Polygon A");
+        Polygon polygonA = mMap.addPolygon(new PolygonOptions()
+                .clickable(true)
+                .add(columbus, nashville, philadelphia, newYork));
+        polygonA.setTag("Polygon A");
 
         /** Define Coordinates for Polygon B */
-        LatLng miami = new LatLng(39.9612,-82.9988);
-        LatLng orlando = new LatLng(40.7128, -74.0060);
-        LatLng jacksonville = new LatLng(39.9526, -75.1652);
-        LatLng tampa = new LatLng(36.1627, -86.7816);
+        LatLng miami = new LatLng(25.7617,-80.1918);
+        LatLng orlando = new LatLng(28.5383, -81.3792);
+        LatLng jacksonville = new LatLng(30.3322, -81.6557);
+        LatLng tampa = new LatLng(27.9506, -82.4572);
 
         /** Configuring polygon B */
         Polygon polygonB = mMap.addPolygon(new PolygonOptions()
@@ -150,7 +150,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .add(miami, orlando, jacksonville, tampa));
         polygonB.setTag("Polygon B");
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(miami));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jacksonville, 4));
 
     }
     @Override

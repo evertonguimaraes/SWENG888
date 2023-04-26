@@ -104,7 +104,7 @@
             android:fontFamily="@font/source_code_pro"
             app:strokeWidth="3dp"
             app:icon="@drawable/ic_button_joystick"
-            
+
             />
 
     </LinearLayout>

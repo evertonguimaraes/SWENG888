@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        /** Intantiate the UI Elements */
+        /** Instantiate the UI Elements */
         instantiateUIElements();
         /** Include a listener to the searchView */
         createSearchViewListener();
@@ -132,7 +132,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng philadelphia = new LatLng(39.9526, -75.1652);
         LatLng nashville = new LatLng(36.1627, -86.7816);
 
-//        /** Configuring polygon A */
+        /** Configuring polygon A */
         Polygon polygonA = mMap.addPolygon(new PolygonOptions()
                 .clickable(true)
                 .add(columbus, nashville, philadelphia, newYork));
@@ -173,8 +173,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 showOptionsMenu();
-                /** TODO Program the actions for the options on the menu */
-
             }
         });
 

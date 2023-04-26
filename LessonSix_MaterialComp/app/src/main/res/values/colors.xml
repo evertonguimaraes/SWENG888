@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Creating new colors -->
+    <color name="blue_accent">#2196F3</color>
+    <color name="blue_accent_dark">#0D47A1</color>
+    <color name="blue_accent_light">#BBDEFB</color>
+    <color name="blue_accent_text">#FFFFFF</color>
+    <color name="blue_accent_divider">#BDBDBD</color>
+
+    <!-- Create new color scheme -->
+    <color name="red_accent">#FFEF5350</color>
+    <color name="red_accent_dark">#FFB71C1C</color>
+    <color name="red_accent_light">#FFFFEBEE</color>
+    <color name="red_accent_text">#FFFFCDD2</color>
+    <color name="red_accent_divider">#FFFF5252</color>
+</resources>
+
+
+
+
+
+
